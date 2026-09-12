@@ -1706,7 +1706,7 @@ function renderOrderHistory() {
       
       const formattedPrice = (item.totalPrice || item.price || '0').toString().replace(/^Rp\s*/i, '');
       const orderId = item.orderId || item.id || '-';
-      const paymentMethod = item.payment_method || (typeof item.paymentMethod === 'string' ? item.paymentMethod : '') || 'QRIS';
+      const paymentMethod = item.paymentMethod || item.payment_method || localStorage.getItem('temp_selected_payment') || 'QRIS';
       const orderDate = item.date || new Date().toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'short' });
 
       return `
@@ -1751,13 +1751,20 @@ function renderOrderHistory() {
 }
     document.querySelectorAll('.modal-opt').forEach(opt => {
   opt.addEventListener('click', function() {
-    // Mengambil nilai asli dari opsi yang diklik (misal: "ovo", "dana")
-    const val = this.getAttribute('data-value') || this.innerText.trim();
+    const selectedText = this.innerText.trim();
+    const selectedVal = this.getAttribute('data-value') || selectedText;
+
+    const inputElem = document.getElementById('paymentMethodInput');
+    if (inputElem) inputElem.value = selectedVal;
     
-    // Simpan nilai ke input hidden dan ubah teks tombol
-    document.getElementById('paymentMethodInput').value = val;
-    document.getElementById('selectedOptionText').textContent = this.innerText.trim();
-    document.getElementById('modalOverlay').style.display = 'none';
+    const textElem = document.getElementById('selectedOptionText');
+    if (textElem) textElem.textContent = selectedText;
+
+    // Simpan pilihan pembayaran pembeli secara otomatis
+    localStorage.setItem('temp_selected_payment', selectedText);
+
+    const modal = document.getElementById('modalOverlay');
+    if (modal) modal.style.display = 'none';
   });
 });
     
