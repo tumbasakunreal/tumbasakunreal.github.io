@@ -1110,7 +1110,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
             product_name: productName,
             product_price: productPrice,
             total_price: totalPrice,
-            paymentMethod: localStorage.getItem('temp_selected_payment') || paymentInput || 'QRIS',
+            payment_method: paymentInput,
           }
         ])
         .then(({ error }) => {
