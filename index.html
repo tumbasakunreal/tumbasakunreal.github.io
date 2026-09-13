@@ -1495,8 +1495,24 @@ window.addEventListener('DOMContentLoaded', async () => {
           // 2. Tampilkan langsung QRIS & tombol
     if (qrisSec) qrisSec.style.display = 'block';
     if (btnConfirmPay) {
-      btnConfirmPay.style.display = 'block';
-      btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
+  btnConfirmPay.style.display = 'block';
+  btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
+  
+  btnConfirmPay.onclick = function() {
+    const activeOrder = JSON.parse(localStorage.getItem('activeOrderDetails') || '{}');
+    const adminWhatsApp = '6285645096621'; // Ganti pakai nomor WA kamu (awalan 62)
+    
+    const message = `Halo Min, saya ingin konfirmasi pembayaran untuk pesanan:\n\n` +
+                    `*ID Pesanan:* ${activeOrder.orderId || '-'}\n` +
+                    `*Produk:* ${activeOrder.productName || '-'}\n` +
+                    `*Total:* ${activeOrder.totalPrice ? 'Rp ' + activeOrder.totalPrice.toLocaleString('id-ID') : '-'}\n` +
+                    `*Metode Pembayaran:* ${activeOrder.paymentMethod || '-'}\n` +
+                    `*No. WhatsApp Pembeli:* ${activeOrder.whatsapp || '-'}\n\n` +
+                    `Mohon verifikasinya ya kak. Terima kasih!`;
+    
+    const waUrl = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank');
+  };
     }
 
     if (typeof supabaseClient !== 'undefined') {
