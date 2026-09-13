@@ -1056,7 +1056,7 @@ if (orderForm) {
 
         const selectedCard = document.querySelector('.product-card.selected');
         const waInput = document.getElementById('whatsappInput')?.value.trim();
-        const paymentInput = localStorage.getItem('temp_selected_payment') || document.getElementById('paymentMethodInput')?.value || document.getElementById('selectedQrisMethod')?.value || 'QRIS';
+        const paymentInput = document.getElementById('paymentMethodInput')?.value.trim() || '';
         
         if (!selectedCard) {
             showToast('Pilih produk terlebih dahulu!');
@@ -1128,7 +1128,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
         if (summaryPrice) summaryPrice.textContent = 'Rp ' + productPrice.toLocaleString('id-ID');
         if (summaryTotal) summaryTotal.textContent = 'Rp ' + totalPrice.toLocaleString('id-ID');
         if (summaryWa) summaryWa.textContent = waInput;
-        if (summaryMethod) summaryMethod.textContent = (localStorage.getItem('temp_selected_payment') || 'QRIS').toUpperCase();
+        if (summaryMethod) summaryMethod.textContent = (paymentInput || localStorage.getItem('temp_selected_payment') || 'QRIS').toUpperCase();
 
         const loadingOverlay = document.getElementById('loadingOverlay');
         const loadingText = document.getElementById('loadingText');
