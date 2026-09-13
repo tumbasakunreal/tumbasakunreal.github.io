@@ -1088,7 +1088,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
           productPrice: productPrice,
           totalPrice: totalPrice,
           waInput: waInput,
-          paymentMethod: paymentInput || localStorage.getItem('temp_selected_payment') || 'QRIS',
+          paymentMethod: localStorage.getItem('temp_selected_payment') || paymentInput || 'QRIS',
           date: new Date().toLocaleDateString('id-ID'),
           status: 'PAID'
         };
@@ -1110,7 +1110,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
             product_name: productName,
             product_price: productPrice,
             total_price: totalPrice,
-            payment_method: paymentInput,
+            paymentMethod: localStorage.getItem('temp_selected_payment') || paymentInput || 'QRIS',
           }
         ])
         .then(({ error }) => {
