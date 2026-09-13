@@ -1056,8 +1056,8 @@ if (orderForm) {
 
         const selectedCard = document.querySelector('.product-card.selected');
         const waInput = document.getElementById('whatsappInput')?.value.trim();
-        const paymentInput = document.getElementById('paymentMethodInput')?.value.trim() || '';
-        
+        const paymentInput = document.getElementById('paymentMethodInput')?.value || document.getElementById('selectedOptionText')?.textContent?.trim();
+
         if (!selectedCard) {
             showToast('Pilih produk terlebih dahulu!');
             return false;
@@ -1088,7 +1088,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
           productPrice: productPrice,
           totalPrice: totalPrice,
           waInput: waInput,
-          paymentMethod: localStorage.getItem('temp_selected_payment') || paymentInput || 'QRIS',
+          paymentMethod: paymentInput,
           date: new Date().toLocaleDateString('id-ID'),
           status: 'PAID'
         };
@@ -1128,7 +1128,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
         if (summaryPrice) summaryPrice.textContent = 'Rp ' + productPrice.toLocaleString('id-ID');
         if (summaryTotal) summaryTotal.textContent = 'Rp ' + totalPrice.toLocaleString('id-ID');
         if (summaryWa) summaryWa.textContent = waInput;
-        if (summaryMethod) summaryMethod.textContent = (paymentInput || localStorage.getItem('temp_selected_payment') || 'QRIS').toUpperCase();
+        if (summaryMethod) summaryMethod.textContent = paymentInput.toUpperCase();
 
         const loadingOverlay = document.getElementById('loadingOverlay');
         const loadingText = document.getElementById('loadingText');
@@ -1706,7 +1706,7 @@ function renderOrderHistory() {
       
       const formattedPrice = (item.totalPrice || item.price || '0').toString().replace(/^Rp\s*/i, '');
       const orderId = item.orderId || item.id || '-';
-      const paymentMethod = item.paymentMethod || item.payment_method || 'QRIS';
+      const paymentMethod = item.paymentMethod || item.payment_method || localStorage.getItem('temp_selected_payment') || 'QRIS';
       const orderDate = item.date || new Date().toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'short' });
 
       return `
