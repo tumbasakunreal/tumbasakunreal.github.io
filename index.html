@@ -1236,7 +1236,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
         const totalText = document.getElementById('summary-total') ? document.getElementById('summary-total').innerText : '';
         const productText = document.getElementById('summary-product') ? document.getElementById('summary-product').innerText : '';
         
-        const pesan = `Halo Admin, saya sudah melakukan pembayaran via QRIS.\n\n*Detail Pesanan:*\n- Produk: ${productText}\n- No. WhatsApp Pembeli: ${waText}\n- Total Bayar: ${totalText}\n\nMohon verifikasinya ya kak. Terima kasih!`;
+        const pesan = `Halo Admin, saya sudah melakukan pembayaran via QRIS.\n\n*Detail Pesanan:*\n- Produk : ${productText}\n- No. Whatsapp : ${waText}\n- Total Bayar: ${totalText}\n\nBerikut bukti transfernya. Mohon segera diproses, terima kasih!`;
         
         if (typeof currentOrderId !== 'undefined' && currentOrderId) {
             localStorage.setItem('activeOrderDetails', JSON.stringify({
