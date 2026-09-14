@@ -191,11 +191,14 @@
     </header>
 
     <!-- KONTEN HALAMAN -->
-    <main style="padding: 16px; max-width: 500px; margin: 0 auto;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <h1 style="font-size: 18px; font-weight: bold; margin: 0;">Notifikasi & Promo</h1>
-            <a href="index.html" style="font-size: 12px; color: #fbbf24; text-decoration: none; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 8px;">← Kembali</a>
-        </div>
+    <main style="padding: 16px; max-width: 500px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h1 style="font-size: 18px; font-weight: bold; margin: 0;">Notifikasi & Promo</h1>
+        <a href="index.html" style="font-size: 12px; color: #fbbf24; text-decoration: none; border: 1px solid #fbbf24; padding: 4px 8px; border-radius: 6px;">Home</a>
+    </div>
+
+    <!-- WRAPPER UTAMA: Memastikan seluruh area sub-tab terkunci lebarnya secara konsisten -->
+    <div style="width: 100%; box-sizing: border-box;">
         
         <!-- Menu Sub-Tab (Pill Toggle) -->
         <div style="width: 100%; display: flex; background-color: #111827; border: 1px solid #2a3447; border-radius: 10px; padding: 4px; margin-bottom: 20px; box-sizing: border-box;">
@@ -203,17 +206,16 @@
             <button onclick="switchSubTab('lainnya')" id="btn-lainnya" style="flex: 1; padding: 10px; background-color: transparent; color: #9ca3af; border: none; border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: 0.2s;">Lainnya</button>
         </div>
 
-        <!-- Konten 1: Bagian Transaksi (Ongoing & History) -->
-        <div id="subtab-transaksi" style="display: block;">
-            <div style="background-color: #1e293b; padding: 16px; border-radius: 12px; border: 1px solid #334155; text-align: center; color: #9ca3af; font-size: 0.85rem;">
+        <!-- Konten 1: Bagian Transaksi -->
+        <div id="subtab-transaksi" style="display: block; width: 100%; box-sizing: border-box;">
+            <div style="background-color: #1e293b; padding: 16px; border-radius: 12px; border: 1px solid #334155; text-align: center; color: #9ca3af; font-size: 0.85rem; width: 100%; box-sizing: border-box;">
                 Belum ada riwayat transaksi.
             </div>
         </div>
 
-        <!-- Konten 2: Bagian Lainnya (Info, Promo, dll) -->
-        <div id="subtab-lainnya" style="display: none;">
-            <!-- Contoh Baris Info Promo -->
-            <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
+        <!-- Konten 2: Bagian Lainnya -->
+        <div id="subtab-lainnya" style="display: none; width: 100%; box-sizing: border-box;">
+            <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px; width: 100%; box-sizing: border-box;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                     <span style="font-size: 11px; color: #fbbf24; font-weight: bold;">INFO PROMO</span>
                     <span style="font-size: 11px; color: #94a3b8;">Baru saja</span>
@@ -221,6 +223,8 @@
                 <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Advance Server Mobile Legends sudah restock! Silakan cek produk.</p>
             </div>
         </div>
+
+    </div>
     </main>
 
         <!-- Overlay Latar Belakang Gelap -->
