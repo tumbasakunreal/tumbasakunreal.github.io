@@ -197,22 +197,29 @@
             <a href="index.html" style="font-size: 12px; color: #fbbf24; text-decoration: none; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 8px;">← Kembali</a>
         </div>
         
-        <!-- Baris Info Promo -->
-        <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <span style="font-size: 11px; color: #fbbf24; font-weight: bold;">INFO PROMO</span>
-                <span style="font-size: 11px; color: #94a3b8;">Baru saja</span>
-            </div>
-            <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Advance Server Mobile Legends sudah restock! Silakan cek beranda untuk order.</p>
+        <!-- Menu Sub-Tab (Pill Toggle) -->
+        <div style="display: flex; background-color: #111827; border: 1px solid #2a3447; border-radius: 10px; padding: 4px; margin-bottom: 20px;">
+            <button onclick="switchSubTab('transaksi')" id="btn-transaksi" style="flex: 1; padding: 10px; background-color: #fbbf24; color: #111827; border: none; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer; transition: 0.2s;">Transaksi</button>
+            <button onclick="switchSubTab('lainnya')" id="btn-lainnya" style="flex: 1; padding: 10px; background-color: transparent; color: #9ca3af; border: none; border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: 0.2s;">Lainnya</button>
         </div>
 
-        <!-- Baris Status Transaksi -->
-        <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <span style="font-size: 11px; color: #60a5fa; font-weight: bold;">STATUS TRANSAKSI</span>
-                <span style="font-size: 11px; color: #94a3b8;">Hari ini</span>
+        <!-- Konten 1: Bagian Transaksi (Ongoing & History) -->
+        <div id="subtab-transaksi" style="display: block;">
+            <div style="text-align: center; color: #9ca3af; padding: 30px 0; font-size: 0.85rem;">
+                Belum ada riwayat transaksi.
             </div>
-            <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Belum ada riwayat transaksi aktif saat ini.</p>
+        </div>
+
+        <!-- Konten 2: Bagian Lainnya (Info, Promo, dll) -->
+        <div id="subtab-lainnya" style="display: none;">
+            <!-- Contoh Baris Info Promo -->
+            <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-size: 11px; color: #fbbf24; font-weight: bold;">INFO PROMO</span>
+                    <span style="font-size: 11px; color: #94a3b8;">Baru saja</span>
+                </div>
+                <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Advance Server Mobile Legends sudah restock! Silakan cek produk.</p>
+            </div>
         </div>
     </main>
 
@@ -313,6 +320,36 @@ function closeSidebar() {
   document.body.style.overflow = "auto";
   document.querySelector('.menu-btn').classList.remove('active');
 }
+    function switchSubTab(target) {
+        const btnTransaksi = document.getElementById('btn-transaksi');
+        const btnLainnya = document.getElementById('btn-lainnya');
+        const subTransaksi = document.getElementById('subtab-transaksi');
+        const subLainnya = document.getElementById('subtab-lainnya');
+
+        if (target === 'transaksi') {
+            btnTransaksi.style.backgroundColor = '#fbbf24';
+            btnTransaksi.style.color = '#111827';
+            btnTransaksi.style.fontWeight = 'bold';
+
+            btnLainnya.style.backgroundColor = 'transparent';
+            btnLainnya.style.color = '#9ca3af';
+            btnLainnya.style.fontWeight = '600';
+
+            subTransaksi.style.display = 'block';
+            subLainnya.style.display = 'none';
+        } else {
+            btnLainnya.style.backgroundColor = '#fbbf24';
+            btnLainnya.style.color = '#111827';
+            btnLainnya.style.fontWeight = 'bold';
+
+            btnTransaksi.style.backgroundColor = 'transparent';
+            btnTransaksi.style.color = '#9ca3af';
+            btnTransaksi.style.fontWeight = '600';
+
+            subLainnya.style.display = 'block';
+            subTransaksi.style.display = 'none';
+        }
+    }
     </script>
     
 </body>
