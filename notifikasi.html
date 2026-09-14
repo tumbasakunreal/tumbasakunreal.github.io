@@ -284,13 +284,18 @@
 
     <script>
         function openSidebar() {
-            document.getElementById('sidebar-drawer').classList.add('active');
-            document.getElementById('sidebar-overlay').classList.add('active');
-        }
-        function closeSidebar() {
-            document.getElementById('sidebar-drawer').classList.remove('active');
-            document.getElementById('sidebar-overlay').classList.remove('active');
-        }
+  document.getElementById("sidebar-drawer").classList.add("active");
+  document.getElementById("sidebar-overlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+  document.querySelector('.menu-btn').classList.add('active');
+}
+
+function closeSidebar() {
+  document.getElementById("sidebar-drawer").classList.remove("active");
+  document.getElementById("sidebar-overlay").classList.remove("active");
+  document.body.style.overflow = "auto";
+  document.querySelector('.menu-btn').classList.remove('active');
+}
     </script>
 </body>
 </html>
