@@ -1219,10 +1219,10 @@ localStorage.setItem('activeOrderId', currentOrderId);
         setTimeout(() => { qrisSec.style.opacity = '1'; }, 50);
         
         // Ubah tombol jadi "SAYA SUDAH BAYAR"
-        btnConfirmPay.textContent = 'SAYA SUDAH BAYAR';
+        btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
         setTimeout(() => { btnConfirmPay.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 350);
         return;
-      } else if (btnConfirmPay.textContent === 'SAYA SUDAH BAYAR') {
+      } else if (btnConfirmPay.textContent === 'KONFIRMASI PEMBAYARAN') {
         // Langsung buka WhatsApp Admin
         const noAdmin = "6285645096621";
         const waText = document.getElementById('summary-wa') ? document.getElementById('summary-wa').innerText : '';
@@ -1590,13 +1590,21 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         } else {
           // Jika masih PENDING
-          if (qrisSec) qrisSec.style.display = 'block';
-          if (orderDetailContent) orderDetailContent.style.display = 'block';
-          if (accSec) accSec.style.display = 'none';
-          if (btnConfirmPay) {
-            btnConfirmPay.style.display = 'block';
-            btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
-          }
+if (qrisSec) {
+    qrisSec.style.display = 'block';
+    
+    // Tambahkan efek scroll halus persis di tengah layar saat refresh
+    setTimeout(() => {
+        qrisSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+  }
+            
+if (orderDetailContent) orderDetailContent.style.display = 'block';
+if (accSec) accSec.style.display = 'none';
+if (btnConfirmPay) {
+    btnConfirmPay.style.display = 'block';
+    btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
+}
         }
         }
       } catch (err) {
