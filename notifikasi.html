@@ -52,6 +52,33 @@
             <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Belum ada riwayat transaksi aktif saat ini.</p>
         </div>
     </main>
-
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
+<div id="sidebar-drawer">
+    <div id="sidebar-header" style="padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e2638;">
+        <span class="sidebar-title" style="color: #ffffff; font-size: 16px; font-weight: 700;">PUSAT BANTUAN</span>
+        <button class="close-btn" onclick="closeSidebar()">&times;</button>
+    </div>
+    <div class="sidebar-body" style="padding: 15px 20px; color: #cbd5e1; font-size: 14px;">
+        <p style="margin-bottom: 15px; font-weight: 600; color: #ffffff;">Bagaimana cara Login akun?</p>
+        <p style="margin-bottom: 15px; font-weight: 600; color: #ffffff;">Apakah akun dijamin aman / anti-hackback?</p>
+        <p style="margin-bottom: 15px; font-weight: 600; color: #ffffff;">Bagaimana cara mengamankan akun?</p>
+        <p style="margin-bottom: 15px; font-weight: 600; color: #ffffff;">Berapa lama proses pembelian?</p>
+        <p style="margin-bottom: 20px; font-weight: 600; color: #ffffff;">Metode pembayaran apa saja yang tersedia?</p>
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">Butuh bantuan lebih lanjut?</p>
+            <a href="https://wa.me/" target="_blank" style="display: block; background: #fbbf24; color: #0f172a; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">Hubungi Admin WhatsApp</a>
+        </div>
+    </div>
+</div>
+    <script>
+function openSidebar() {
+    document.getElementById('sidebar-drawer').classList.add('active');
+    document.getElementById('sidebar-overlay').classList.add('active');
+}
+function closeSidebar() {
+    document.getElementById('sidebar-drawer').classList.remove('active');
+    document.getElementById('sidebar-overlay').classList.remove('active');
+}
+</script>
 </body>
 </html>
