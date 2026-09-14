@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifikasi & Promo - Tumbasakun</title>
-    <!-- Pastikan menghubungkan file CSS utama kamu -->
     <link rel="stylesheet" href="style.css">
-    <!-- Jika kamu menggunakan Tailwind CDN di index.html, pastikan script-nya juga disalin ke sini -->
 </head>
-<body class="bg-[#0f172a] text-white min-h-screen">
+<body style="background-color: #0f172a; color: white; margin: 0; font-family: sans-serif; min-height: 100vh;">
 
-    <!-- HEADER UTAMA (Disalin persis dari baris 298-316 index.html) -->
+    <!-- HEADER UTAMA -->
     <header class="navbar" id="navbar">
         <button class="menu-btn" aria-label="Menu" onclick="openSidebar()">
             <span></span>
@@ -29,30 +27,29 @@
         </div>
     </header>
 
-    <!-- KONTEN HALAMAN NOTIFIKASI & PROMO -->
-    <main class="p-4 max-w-md mx-auto mt-2">
-        <div class="flex items-center justify-between mb-4">
-            <h1 class="text-xl font-bold">Notifikasi & Promo</h1>
-            <!-- Tombol Kembali ke Beranda -->
-            <a href="index.html" class="text-xs text-yellow-400 font-semibold border border-yellow-400 px-3 py-1.5 rounded-lg hover:bg-yellow-400 hover:text-black transition">← Kembali ke Toko</a>
+    <!-- KONTEN HALAMAN -->
+    <main style="padding: 16px; max-width: 500px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h1 style="font-size: 18px; font-weight: bold; margin: 0;">Notifikasi & Promo</h1>
+            <a href="index.html" style="font-size: 12px; color: #fbbf24; text-decoration: none; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 8px;">← Kembali</a>
         </div>
         
-        <!-- Card Info Promo -->
-        <div class="bg-[#1e293b] p-4 rounded-xl border border-gray-700 mb-3 shadow-md">
-            <div class="flex justify-between items-start mb-1">
-                <span class="text-xs text-yellow-400 font-semibold">INFO PROMO</span>
-                <span class="text-xs text-gray-400">Baru saja</span>
+        <!-- Baris Info Promo -->
+        <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="font-size: 11px; color: #fbbf24; font-weight: bold;">INFO PROMO</span>
+                <span style="font-size: 11px; color: #94a3b8;">Baru saja</span>
             </div>
-            <p class="text-sm text-gray-200">Advance Server Mobile Legends sudah restock! Silakan cek beranda untuk order.</p>
+            <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Advance Server Mobile Legends sudah restock! Silakan cek beranda untuk order.</p>
         </div>
 
-        <!-- Card Status Transaksi -->
-        <div class="bg-[#1e293b] p-4 rounded-xl border border-gray-700 mb-3 shadow-md">
-            <div class="flex justify-between items-start mb-1">
-                <span class="text-xs text-blue-400 font-semibold">STATUS TRANSAKSI</span>
-                <span class="text-xs text-gray-400">Hari ini</span>
+        <!-- Baris Status Transaksi -->
+        <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span style="font-size: 11px; color: #60a5fa; font-weight: bold;">STATUS TRANSAKSI</span>
+                <span style="font-size: 11px; color: #94a3b8;">Hari ini</span>
             </div>
-            <p class="text-sm text-gray-200">Belum ada riwayat transaksi aktif saat ini.</p>
+            <p style="font-size: 13px; color: #e2e8f0; margin: 0;">Belum ada riwayat transaksi aktif saat ini.</p>
         </div>
     </main>
 
