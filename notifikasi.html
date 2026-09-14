@@ -5,118 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifikasi & Promo - Tumbasakun</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* CSS KHUSUS SIDEBAR AGAR RAPI DAN BISA DISEMBUNYIKAN */
-        #sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 999;
-        }
-        #sidebar-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
-        #sidebar-drawer {
-            position: fixed;
-            top: 0;
-            left: -280px;
-            width: 280px;
-            height: 100%;
-            background-color: #111827;
-            border-right: 1px solid #1f2937;
-            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
-            transition: left 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-        }
-        #sidebar-drawer.active {
-            left: 0;
-        }
-        .sidebar-header {
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1f2937;
-        }
-        .sidebar-title {
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-        }
-        .close-btn {
-            background: none;
-            border: none;
-            color: #94a3b8;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .sidebar-content {
-            padding: 16px;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
-        .faq-accordion {
-            border-bottom: 1px solid #1f2937;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            color: #ffffff;
-            font-size: 13.5px;
-            list-style: none;
-        }
-        .faq-question::-webkit-details-marker {
-            display: none;
-        }
-        .faq-arrow {
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-            margin-left: 8px;
-            color: #94a3b8;
-        }
-        details[open] .faq-arrow {
-            transform: rotate(180deg);
-        }
-        .faq-answer {
-            margin-top: 8px;
-            font-size: 13px;
-            color: #94a3b8;
-            line-height: 1.5;
-        }
-        .faq-answer b {
-            color: #ffffff;
-        }
-        .steps-list {
-            padding-left: 16px;
-            margin: 6px 0 0 0;
-        }
-        .steps-list li {
-            margin-bottom: 4px;
-        }
-        .sidebar-contact {
-            text-align: center;
-            margin-top: 24px;
-        }
-        .sidebar-contact p {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body style="background-color: #0f172a; color: white; margin: 0; font-family: sans-serif; min-height: 100vh;">
 
@@ -127,10 +15,10 @@
             <span></span>
             <span></span>
         </button>
-        <div style="display: flex; align-items: center; gap: 7px;">
+        <div style="display: flex; align-items: center; gap: 4px;">
             <button style="background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#fbbf24">
-                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
                 </svg>
             </button>
             <div class="flag-icon">
@@ -143,12 +31,12 @@
     <main style="padding: 16px; max-width: 500px; margin: 0 auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <h1 style="font-size: 18px; font-weight: bold; margin: 0;">Notifikasi & Promo</h1>
-            <a href="index.html" style="font-size: 12px; color: #fbbf24; text-decoration: none; border: 1px solid #fbbf24; padding: 4px 8px; border-radius: 6px;">Beranda</a>
+            <a href="index.html" style="font-size: 12px; color: #fbbf24; text-decoration: none; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 8px;">← Kembali</a>
         </div>
-
+        
         <!-- Baris Info Promo -->
         <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                 <span style="font-size: 11px; color: #fbbf24; font-weight: bold;">INFO PROMO</span>
                 <span style="font-size: 11px; color: #94a3b8;">Baru saja</span>
             </div>
@@ -156,8 +44,8 @@
         </div>
 
         <!-- Baris Status Transaksi -->
-        <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <div style="background-color: #1e293b; padding: 14px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                 <span style="font-size: 11px; color: #60a5fa; font-weight: bold;">STATUS TRANSAKSI</span>
                 <span style="font-size: 11px; color: #94a3b8;">Hari ini</span>
             </div>
@@ -165,97 +53,5 @@
         </div>
     </main>
 
-    <!-- OVERLAY & SIDEBAR -->
-    <div id="sidebar-overlay" onclick="closeSidebar()"></div>
-
-    <div id="sidebar-drawer">
-      <div class="sidebar-header">
-        <span class="sidebar-title">PUSAT BANTUAN</span>
-        <button class="close-btn" onclick="closeSidebar()">&times;</button>
-      </div>
-      
-      <div class="sidebar-content">
-        
-        <details class="faq-accordion">
-          <summary class="faq-question">
-            <span>Bagaimana cara Login akun?</span>
-            <svg class="faq-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="faq-answer">
-            <p>Login via akun Moonton. Untuk cara ubah email / pengamanan akun, bisa langsung akses situs <b>mail.tm</b> menggunakan data akun Moonton (Email & Password) tersebut. Baca selengkapnya di opsi pertanyaan ke-3.</p>
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-question">
-            <span>Apakah akun dijamin aman / anti-hackback?</span>
-            <svg class="faq-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="faq-answer">
-            <p>Dijamin 100% aman dan bergaransi. Semua akun dibuat secara bersih dan independen, sehingga bebas dari risiko penarikan kembali (hackback).</p>
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-question">
-            <span>Bagaimana cara mengamankan akun?</span>
-            <svg class="faq-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="faq-answer">
-            <ol class="steps-list">
-              <li>Login akun Moonton di game MLBB.</li>
-              <li>Buka browser HP, akses <b>mail.tm/en/</b> lalu login memakai email & kata sandi Moonton tersebut.</li>
-              <li>Masuk ke game MLBB &gt; Profil &gt; Pengaturan Akun &gt; Pusat Akun &gt; Ubah Alamat Email.</li>
-              <li>Klik <b>Kirim Kode</b>, lalu cek kode verifikasi yang masuk di situs <b>mail.tm</b> untuk mengganti ke email pribadimu.</li>
-            </ol>
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-question">
-            <span>Berapa lama proses pembelian?</span>
-            <svg class="faq-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="faq-answer">
-            <p>Proses penyerahan data akun berlangsung instan, rata-rata memakan waktu 5 hingga 15 menit setelah pembayaran terverifikasi.</p>
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-question">
-            <span>Metode pembayaran apa saja yang tersedia?</span>
-            <svg class="faq-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="faq-answer">
-            <p>Menerima pembayaran via QRIS (semua bank & e-wallet), Transfer Bank (BCA, Mandiri, BRI, BNI), serta E-Wallet (Dana, OVO, GoPay, ShopeePay).</p>
-          </div>
-        </details>
-
-        <div class="sidebar-contact">
-          <p>Butuh bantuan lebih lanjut?</p>
-          <a href="https://wa.me/6285645096621" target="_blank" style="background-color: #eab308; color: #000000; font-size: 12.5px; font-weight: 600; display: block; text-align: center; padding: 8px 16px; border-radius: 8px; text-decoration: none;">
-            Hubungi Admin WhatsApp
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SCRIPT -->
-    <script>
-        function openSidebar() {
-  document.getElementById("sidebar-drawer").classList.add("active");
-  document.getElementById("sidebar-overlay").classList.add("active");
-  document.body.style.overflow = "hidden";
-  document.querySelector('.menu-btn').classList.add('active');
-}
-
-function closeSidebar() {
-  document.getElementById("sidebar-drawer").classList.remove("active");
-  document.getElementById("sidebar-overlay").classList.remove("active");
-  document.body.style.overflow = "auto";
-  document.querySelector('.menu-btn').classList.remove('active');
-}
-    </script>
 </body>
-    </html>
+</html>
