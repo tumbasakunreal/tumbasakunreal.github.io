@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifikasi & Promo - Tumbasakun</title>
+    <!-- Pastikan menghubungkan file CSS utama kamu -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Jika kamu menggunakan Tailwind CDN di index.html, pastikan script-nya juga disalin ke sini -->
+</head>
+<body class="bg-[#0f172a] text-white min-h-screen">
+
+    <!-- HEADER UTAMA (Disalin persis dari baris 298-316 index.html) -->
+    <header class="navbar" id="navbar">
+        <button class="menu-btn" aria-label="Menu" onclick="openSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div style="display: flex; align-items: center; gap: 4px;">
+            <button style="background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                </svg>
+            </button>
+            <div class="flag-icon">
+                <img src="https://flagcdn.com/w40/id.png" alt="Indonesia Flag">
+            </div>
+        </div>
+    </header>
+
+    <!-- KONTEN HALAMAN NOTIFIKASI & PROMO -->
+    <main class="p-4 max-w-md mx-auto mt-2">
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-xl font-bold">Notifikasi & Promo</h1>
+            <!-- Tombol Kembali ke Beranda -->
+            <a href="index.html" class="text-xs text-yellow-400 font-semibold border border-yellow-400 px-3 py-1.5 rounded-lg hover:bg-yellow-400 hover:text-black transition">← Kembali ke Toko</a>
+        </div>
+        
+        <!-- Card Info Promo -->
+        <div class="bg-[#1e293b] p-4 rounded-xl border border-gray-700 mb-3 shadow-md">
+            <div class="flex justify-between items-start mb-1">
+                <span class="text-xs text-yellow-400 font-semibold">INFO PROMO</span>
+                <span class="text-xs text-gray-400">Baru saja</span>
+            </div>
+            <p class="text-sm text-gray-200">Advance Server Mobile Legends sudah restock! Silakan cek beranda untuk order.</p>
+        </div>
+
+        <!-- Card Status Transaksi -->
+        <div class="bg-[#1e293b] p-4 rounded-xl border border-gray-700 mb-3 shadow-md">
+            <div class="flex justify-between items-start mb-1">
+                <span class="text-xs text-blue-400 font-semibold">STATUS TRANSAKSI</span>
+                <span class="text-xs text-gray-400">Hari ini</span>
+            </div>
+            <p class="text-sm text-gray-200">Belum ada riwayat transaksi aktif saat ini.</p>
+        </div>
+    </main>
+
+</body>
+</html>
