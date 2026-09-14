@@ -1173,7 +1173,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
         if (accSec) accSec.style.display = 'none';
         if (btnConfirmPay) {
             btnConfirmPay.style.display = 'block';
-            btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
+            btnConfirmPay.textContent = 'LANJUTKAN PEMBAYARAN';
         }
 
         if (loadingOverlay) {
@@ -1218,8 +1218,8 @@ localStorage.setItem('activeOrderId', currentOrderId);
 
         setTimeout(() => { qrisSec.style.opacity = '1'; }, 50);
         
-        // Ubah tombol jadi "SAYA SUDAH BAYAR"
-        btnConfirmPay.textContent = 'KONFIRMASI PEMBAYARAN';
+        // Ubah tombol jadi "KONFIRMASI PEMBAYARAN"
+        btnConfirmPay.textContent = 'LANJUTKAN PEMBAYARAN';
         setTimeout(() => { btnConfirmPay.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 350);
         return;
       } else if (btnConfirmPay.textContent === 'KONFIRMASI PEMBAYARAN') {
