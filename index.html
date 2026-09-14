@@ -285,6 +285,10 @@
   max-width: 500px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
+ /* Efek garis tiga jadi kuning saat sidebar terbuka */
+.menu-btn.active span {
+    background-color: #fbbf24 !important;
+}    
 
 </style>
 <!-- Supabase SDK JS -->
@@ -1403,12 +1407,14 @@ function openSidebar() {
   document.getElementById("sidebar-drawer").classList.add("active");
   document.getElementById("sidebar-overlay").classList.add("active");
   document.body.style.overflow = "hidden";
+  document.querySelector('.menu-btn').classList.add('active');
 }
 
 function closeSidebar() {
   document.getElementById("sidebar-drawer").classList.remove("active");
   document.getElementById("sidebar-overlay").classList.remove("active");
   document.body.style.overflow = "auto";
+  document.querySelector('.menu-btn').classList.remove('active');
 }
     let selectedRating = 5;
 function setRating(val) {
