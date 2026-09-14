@@ -1220,12 +1220,7 @@ localStorage.setItem('activeOrderId', currentOrderId);
         
         // Ubah tombol jadi "SAYA SUDAH BAYAR"
         btnConfirmPay.textContent = 'SAYA SUDAH BAYAR';
-        setTimeout(() => { 
-    const targetQris = document.getElementById('qrisSection');
-    if (targetQris) {
-        targetQris.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}, 350);
+        setTimeout(() => { btnConfirmPay.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 350);
         return;
       } else if (btnConfirmPay.textContent === 'SAYA SUDAH BAYAR') {
         // Langsung buka WhatsApp Admin
