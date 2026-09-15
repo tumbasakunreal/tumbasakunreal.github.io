@@ -207,11 +207,9 @@
         </div>
 
         <!-- Konten 1: Bagian Transaksi -->
-        <div id="subtab-transaksi" style="display: block; width: 100%; box-sizing: border-box;">
-            <div style="background-color: #1e293b; padding: 16px; border-radius: 12px; border: 1px solid #334155; text-align: center; color: #9ca3af; font-size: 0.85rem; width: 100%; box-sizing: border-box;">
-                Belum ada riwayat transaksi.
-            </div>
-        </div>
+<div id="subtab-transaksi" style="display: block; width: 100%; box-sizing: border-box;">
+    <div id="container-riwayat"></div>
+</div>
 
         <!-- Konten 2: Bagian Lainnya -->
         <div id="subtab-lainnya" style="display: none; width: 100%; box-sizing: border-box;">
@@ -354,6 +352,56 @@ function closeSidebar() {
             subTransaksi.style.display = 'none';
         }
     }
+        // --- KODE TAMBAHAN UNTUK RIWAYAT TRANSAKSI ---
+    window.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('container-riwayat');
+        const savedOrder = localStorage.getItem('activeOrderDetails');
+
+        if (container && savedOrder) {
+            const trx = JSON.parse(savedOrder);
+            container.innerHTML = `
+                <div style="background-color: #161f30; border: 1px solid #2a3447; border-radius: 12px; padding: 16px; width: 100%; box-sizing: border-box; margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="width: 24px; height: 24px; background-color: #fbbf24; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </div>
+                            <span style="color: #fff; font-weight: bold; font-size: 0.95rem;">${trx.productName}</span>
+                        </div>
+                        <span style="background-color: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;">Sukses</span>
+                    </div>
+
+                    <div style="border-top: 1px dashed #2a3447; margin-bottom: 12px;"></div>
+
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.82rem; color: #9ca3af;">
+                        <span>ID Transaksi</span>
+                        <span style="color: #e2e8f0; font-family: monospace;">#IDT-178923</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.82rem; color: #9ca3af;">
+                        <span>Metode Pembayaran</span>
+                        <span style="color: #e2e8f0; font-weight: 600;">${trx.paymentMethod}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.82rem; color: #9ca3af;">
+                        <span>Waktu Transaksi</span>
+                        <span style="color: #e2e8f0;">15/9/2026</span>
+                    </div>
+
+                    <div style="border-top: 1px solid #2a3447; margin-bottom: 12px;"></div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: #fff; font-size: 0.88rem; font-weight: 600;">Total Harga</span>
+                        <span style="color: #fbbf24; font-size: 1rem; font-weight: bold;">Rp ${Number(trx.totalPrice).toLocaleString('id-ID')}</span>
+                    </div>
+                </div>
+            `;
+        } else if (container) {
+            container.innerHTML = `
+                <div style="background-color: #1e293b; padding: 16px; border-radius: 12px; border: 1px solid #334155; text-align: center; color: #9ca3af; font-size: 0.85rem; width: 100%; box-sizing: border-box;">
+                    Belum ada riwayat transaksi.
+                </div>
+            `;
+        }
+    });
     </script>
     
 </body>
