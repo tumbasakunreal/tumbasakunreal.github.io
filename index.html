@@ -522,9 +522,9 @@
         </div>
 
         <!-- TAB 2: DETAIL PESANAN -->
-        <div id="tab-pesanan" class="tab-content" style="display: none; min-height: 80vh; padding-top: 60px;">
+        <div id="tab-pesanan" class="tab-content" style="display: none; min-height: 80vh; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
             <section class="checkout-section">
-                    
+                
                     <!-- Empty State -->
                     <div id="empty-state-card" class="empty-state-box" style="text-align: center; padding: 20px 15px;">
                         <div class="empty-icon" style="margin-bottom: 24px; display: flex; justify-content: center;">
@@ -535,14 +535,12 @@
                             </svg>
                         </div>
                         <h3 style="color: #fff; margin-bottom: 8px; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em;">Belum Ada Pesanan</h3>
-                        <p style="color: #9ca3af; font-size: 0.875rem; line-height: 1.5; margin-bottom: 24px; max-width: 290px; margin-left: auto; margin-right: auto;">
-                            Riwayat transaksi kamu bakal muncul di sini. Silakan pilih produk di tab Beranda untuk mulai belanja!
+                        <p style="color: #9ca3af; font-size: 0.800rem; line-height: 1.5; margin-bottom: 24px; max-width: 290px; margin-left: auto; margin-right: auto;">
+                            Detail pesanan Anda akan ditampilkan di sini. Silakan pilih produk di tab Beranda!
                         </p>
-                        <div style="text-align: center;">
-    <button type="button" id="btn-submit" onclick="switchTab('beranda')" style="display: inline-block; width: auto; padding: 12px 24px; background-color: #fbbf24; color: #111827; border: none; border-radius: 8px; font-weight: bold; font-size: 0.85rem; cursor: pointer;">KEMBALI KE BERANDA</button>
-                        </div>
+                        <button type="button" class="btn-submit" onclick="switchTab('beranda')">KEMBALI KE BERANDA</button>
                     </div>
-                
+
                     <!-- Tampilan Rincian Detail Pembelian -->
                  <div id="order-detail-content" style="display: none;">
                      <div class="checkout-card" style="margin-top: 15px;">
