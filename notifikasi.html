@@ -209,50 +209,7 @@
         <!-- Konten 1: Bagian Transaksi -->
 <div id="subtab-transaksi" style="display: block; width: 100%; box-sizing: border-box;">
     <div id="container-riwayat">
-    <!-- Card Riwayat Transaksi -->
-    <div style="background-color: #1f242d; border: 1px solid #21262d; border-radius: 14px; padding: 16px; margin-bottom: 14px; color: #fff; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-        
-        <!-- Bagian Header: Ikon Keranjang, Nama Produk, & Badge Sukses -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <!-- Ikon Keranjang SVG (Warna Oranye) -->
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <span style="font-weight: 700; font-size: 16px; color: #ffffff;">Advance Server 5s</span>
-            </div>
-            <!-- Badge Status Sukses -->
-            <span style="font-size: 12px; padding: 4px 12px; border-radius: 20px; background-color: rgba(34, 197, 94, 0.15); color: #22c55e; font-weight: 600;">Sukses</span>
-        </div>
-        
-        <!-- Garis Pemisah Atas -->
-        <div style="border-top: 1px dashed #30363d; margin-bottom: 12px;"></div>
-
-        <!-- Bagian Detail Transaksi -->
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between;">
-                <span style="color: #8b949e;">ID Transaksi</span>
-                <span style="color: #e6edf3; font-weight: 500;">#IDT-1789235347071</span>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-                <span style="color: #8b949e;">Transaksi Via</span>
-                <span style="color: #e6edf3; font-weight: 600;">GOPAY</span>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-                <span style="color: #8b949e;">Waktu Transaksi</span>
-                <span style="color: #e6edf3;">13/9/2026</span>
-            </div>
-        </div>
-
-        <!-- Garis Pemisah Bawah -->
-        <div style="border-top: 1px solid #30363d; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: #8b949e; font-size: 14px;">Total Harga</span>
-            <span style="font-weight: bold; color: #111827; font-size: 16px;">Rp 7.275</span>
-        </div>
     </div>
-</div>
 
         <!-- Konten 2: Bagian Lainnya -->
         <div id="subtab-lainnya" style="display: none; width: 100%; box-sizing: border-box;">
@@ -395,6 +352,70 @@ function closeSidebar() {
             subTransaksi.style.display = 'none';
         }
     }
+        // Fungsi untuk memuat riwayat transaksi secara otomatis & dinamis
+        function loadRiwayatTransaksi() {
+            const container = document.getElementById('container-riwayat');
+            if (!container) return;
+
+            const savedOrder = localStorage.getItem('activeOrderDetails');
+            
+            if (!savedOrder) {
+                container.innerHTML = '<p style="text-align: center; color: #8b949e; font-size: 13px; margin-top: 20px;">Belum ada riwayat transaksi.</p>';
+                return;
+            }
+
+            const order = JSON.parse(savedOrder);
+            
+            let statusText = order.status || 'Sukses'; 
+            let badgeBg = 'rgba(34, 197, 94, 0.15)'; 
+            let badgeColor = '#22c55e';
+            
+            // Jika statusnya pending, otomatis jadi oranye muda
+            if (statusText.toUpperCase() === 'PENDING') {
+                statusText = 'Pending';
+                badgeBg = 'rgba(255, 191, 36, 0.15)'; 
+                badgeColor = '#ffbf24';
+            }
+
+            container.innerHTML = `
+            <div style="background-color: #1f242d; border: 1px solid #30363d; border-radius: 14px; padding: 16px; margin-bottom: 14px; color: #fff; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span style="font-weight: 700; font-size: 16px; color: #ffffff;">${order.productName || 'Advance Server 5s'}</span>
+                    </div>
+                    <span style="font-size: 12px; padding: 4px 12px; border-radius: 20px; background-color: ${badgeBg}; color: ${badgeColor}; font-weight: 600;">${statusText}</span>
+                </div>
+                
+                <div style="border-top: 1px dashed #384252; margin-bottom: 12px;"></div>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #8b949e;">ID Transaksi</span>
+                        <span style="color: #e6edf3; font-weight: 500;">${order.orderId || '#IDT-1789235347071'}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #8b949e;">Transaksi Via</span>
+                        <span style="color: #e6edf3; font-weight: 600;">${order.paymentMethod || 'GOPAY'}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #8b949e;">Waktu Transaksi</span>
+                        <span style="color: #e6edf3;">${order.date || '13/9/2026'}</span>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid #384252; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #8b949e; font-size: 14px;">Total Harga</span>
+                    <span style="font-weight: bold; color: #ffbf24; font-size: 16px;">Rp ${Number(order.totalPrice || 7275).toLocaleString('id-ID')}</span>
+                </div>
+            </div>`;
+        }
+
+        document.addEventListener('DOMContentLoaded', loadRiwayatTransaksi);
     </script>
     
 </body>
