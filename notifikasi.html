@@ -378,7 +378,7 @@ function closeSidebar() {
             }
             
             // Deteksi fleksibel agar ID dan Waktu tidak strip (-)
-            const displayId = order.order_id || order.orderId || order.id || order.transactionId || '-';
+            const displayId = order.orderId || order.order_id || localStorage.getItem('activeOrderId') || '-';
             const displayDate = order.date || order.tanggal || order.waktu || new Date().toLocaleDateString('id-ID');
 
             let statusText = order.status || 'Sukses'; 
