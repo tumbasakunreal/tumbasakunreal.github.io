@@ -1520,11 +1520,11 @@ window.addEventListener('DOMContentLoaded', async () => {
       const qrisTotalElem = document.getElementById('qrisTotal');
 
       if (sumProduct) sumProduct.textContent = details.productName || '-';
-      if (sumPrice) sumPrice.textContent = 'Rp ' + (details.productPrice || 0).toLocaleString('id-ID');
-      if (sumTotal) sumTotal.textContent = 'Rp ' + (details.totalPrice || 0).toLocaleString('id-ID');
-      if (sumWa) sumWa.textContent = details.waInput || '-';
-      if (sumMethod) sumMethod.textContent = (details.paymentInput || '-').toUpperCase();
-      if (qrisTotalElem) qrisTotalElem.textContent = 'Rp ' + (details.totalPrice || 0).toLocaleString('id-ID');
+            if (sumPrice) sumPrice.textContent = 'Rp ' + (details.totalPrice || '0');
+            if (sumTotal) sumTotal.textContent = 'Rp ' + (details.totalPrice || '0');
+            if (sumWa) sumWa.textContent = details.whatsapp || '-';
+            if (sumMethod) sumMethod.textContent = details.paymentMethod ? details.paymentMethod.toUpperCase() : 'QRIS';
+            if (qrisTotalElem) qrisTotalElem.textContent = 'Rp ' + (details.totalPrice || '0');
     }
           // 2. Tampilkan langsung QRIS & tombol
     if (qrisSec) qrisSec.style.display = 'block';
