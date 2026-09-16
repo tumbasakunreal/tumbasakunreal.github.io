@@ -1240,7 +1240,6 @@ localStorage.setItem('activeOrderId', currentOrderId);
 
             if (typeof currentOrderId !== 'undefined' && currentOrderId) {
                 localStorage.setItem('activeOrderDetails', JSON.stringify({
-                    order_id: currentOrderId,
                     orderId: currentOrderId,
                     productName: productText,
                     totalPrice: totalText,
