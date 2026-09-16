@@ -1229,28 +1229,32 @@ localStorage.setItem('activeOrderId', currentOrderId);
         btnConfirmPay.textContent = 'LANJUTKAN PEMBAYARAN';
         setTimeout(() => { btnConfirmPay.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 350);
         return;
-    } else if (btnConfirmPay.textContent === 'KONFIRMASI PEMBAYARAN') {
-        // Langsung buka WhatsApp Admin
-        const noAdmin = '6285645096621';
-        const waText = document.getElementById('summary-wa') ? document.getElementById('summary-wa').innerText : '';
-        const totalText = document.getElementById('summary-total') ? document.getElementById('summary-total').innerText : '';
-        const productText = document.getElementById('summary-product') ? document.getElementById('summary-product').innerText : '';
-        
-        const pesan = `Halo Admin, saya sudah melakukan pembayaran via ${paymentInput}.\n\nDetail Pesanan:\n- Produk : ${productText}\n- No. Whatsapp : ${waText}\n- Total Bayar : ${totalText}\n\nBerikut bukti transfernya. Mohon segera diproses, terima kasih!`;
+    }
+        else if (btnConfirmPay.textContent === 'KONFIRMASI PEMBAYARAN') {
+            // Langsung buka WhatsApp Admin
+            const noAdmin = '6285645096621';
+            const waText = document.getElementById('summary-wa') ? document.getElementById('summary-wa').innerText : '';
+            const totalText = document.getElementById('summary-total') ? document.getElementById('summary-total').innerText : '';
+            const productText = document.getElementById('summary-product') ? document.getElementById('summary-product').innerText : '';
+            
+            // Ambil metode pembayaran secara aman langsung dari teks ringkasan di layar atau input
+            const chosenPay = (document.getElementById('summary-method') && document.getElementById('summary-method').innerText) ? document.getElementById('summary-method').innerText : (typeof paymentInput !== 'undefined' ? paymentInput : 'QRIS');
+
+            const pesan = `Halo Admin, saya ingin konfirmasi pembayaran untuk pesanan:\n\nID Pesanan: ${typeof currentOrderId !== 'undefined' ? currentOrderId : '-'}\nProduk: ${productText}\nTotal: ${totalText}\nMetode Pembayaran: ${chosenPay}\nNo. WhatsApp Pembeli: ${waText}\n\nMohon verifikasinya ya kak. Terima kasih!`;
 
             if (typeof currentOrderId !== 'undefined' && currentOrderId) {
                 localStorage.setItem('activeOrderDetails', JSON.stringify({
                     orderId: currentOrderId,
                     productName: productText,
                     totalPrice: totalText,
-                    paymentMethod: paymentInput,
+                    paymentMethod: chosenPay,
                     whatsapp: waText
                 }));
             }
-        
-        window.open(`https://wa.me/${noAdmin}?text=${encodeURIComponent(pesan)}`, '_blank');
-        return;
-    }
+
+            window.open(`https://wa.me/${noAdmin}?text=${encodeURIComponent(pesan)}`, '_blank');
+            return;
+        }
     });
   }
 
